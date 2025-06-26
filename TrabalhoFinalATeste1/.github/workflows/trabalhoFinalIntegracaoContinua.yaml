@@ -1,0 +1,25 @@
+name: Testes Automáticos JS
+
+on:
+  workflow_dispatch:  # Permite execução manual
+
+jobs:
+  rodar-testes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar o repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Executar arquivo de testes
+        run: node trabalhoFinal.js
+
+      - name: Upload da evidência dos testes
+        uses: actions/upload-artifact@v4
+      
+
