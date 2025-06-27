@@ -16,10 +16,17 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Instalar dependências
+        run: |
+          cd TrabalhoFinalATeste1  # Entra na subpasta
+          npm ci                   # Instala dependências
+
       - name: Executar arquivo de testes
-        run: node trabalhoFinal.js
+        run: |
+          cd TrabalhoFinalATeste1  # Entra na subpasta
+          node trabalhoFinal.js    # Executa o script
 
       - name: Upload da evidência dos testes
         uses: actions/upload-artifact@v4
-      
+       
 
